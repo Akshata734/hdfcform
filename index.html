@@ -312,7 +312,7 @@
         };
         
         // Submit to Google Sheets
-        const response = await fetch('https://script.google.com/macros/s/AKfycbwzjHw_N6yJecMofNWjKjJJEPYIGETtzttCONEgyvPt8361lBw5ru5yEk9SPjlulGfakg/exec', {
+        const response = await fetch('https://script.google.com/macros/s/AKfycbxb6Pzx6oROCt-f_WgD70A4KDswhui-Dl8p-HTofix-qoVETgzQMZ8j4FbEXLcyV4A/exec', {
           method: 'POST',
           body: JSON.stringify(formData)
         });
@@ -323,7 +323,7 @@
           throw new Error(result);
         }
         
-        alert("✅ Checklist submitted successfully!");
+        alert("progress saved successfully!");
         document.getElementById('checklistForm').reset();
         
       } catch (error) {
