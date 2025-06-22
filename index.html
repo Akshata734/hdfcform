@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recruitment Call Checklist</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: sans-serif;
+      background: #f0f2f5;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      max-width: 750px;
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      font-size: 24px;
+      color: #202124;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 18px;
+      color: #202124;
+      margin: 25px 0 15px 0;
+      text-align: center;
+    }
+
+    form label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="date"] {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background-color: #fdfdfd;
+    }
+
+    input:focus {
+      border-color: #1a73e8;
+      outline: none;
+      box-shadow: 0 0 0 2px #e8f0fe;
+    }
+
+    .checklist-items {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: #e6f7ff;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 25px;
+    }
+
+    .checklist-row {
+      display: flex;
+      align-items: center;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 10px;
+      gap: 10px;
+    }
+
+    .checklist-row input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+    }
+
+    .checklist-row span {
+      flex-grow: 1;
+      padding-left: 10px;
+    }
+
+    .main-save {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .main-save:hover {
+      background-color: #0069d9;
+    }
+
+    @media (max-width: 600px) {
+      .checklist-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .checklist-row span,
+      .checklist-row input[type="checkbox"] {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Recruitment Call Checklist</h1>
+    <form id="checklistForm">
+      <label>Name of the Probable FC
+        <input type="text" id="name" name="fcName" placeholder="Enter name..." required />
+      </label>
+
+      <label>Mobile No
+        <input type="number" id="mobile" name="mobile" placeholder="Enter mobile number..." required />
+      </label>
+
+      <label>Response
+        <input type="text" id="response" name="response" placeholder="Enter response..." required />
+      </label>
+
+      <label>Date
+        <input type="date" id="date" name="date" required />
+      </label>
+
+      <label>FLS Name
+        <input type="text" id="flsName" name="flsName" placeholder="Enter FLS name..." required />
+      </label>
+
+      <label>Trainer Name
+        <input type="text" id="trainerName" name="trainerName" placeholder="Enter trainer name..." required />
+      </label>
+
+      <h2>Checklist Points</h2>
+      <div class="checklist-items">
+    
+        <div class="checklist-row">
+          <input type="checkbox" id="greetings" class="checklist" name="checklist" value="Greetings" />
+          <span>Greetings</span>
+        </div>
+
+        <div class="checklist-row">
+          <input type="checkbox" id="selfIntro" class="checklist" name="checklist" value="Self-Introduction" />
+          <span>Self-Introduction</span>
+        </div>
+
+        <div class="checklist-row">
+          <input type="checkbox" id="iceBreaking" class="checklist" name="checklist" value="Ice Breaking" />
+          <span>Ice Breaking</span>
+        </div>
+        <div class="checklist-row">
+          <input type="checkbox" id="companyIntro" class="checklist" name="checklist" value="Company Introduction" />
+          <span>Company Introduction</span>
+        </div>
+        <div class="checklist-row">
+          <input type="checkbox" id="tod" class="checklist" name="checklist" value="TOD - Threat of Discontent" />
+          <span>TOD - Threat of Discontent</span>
+        </div>
+        <div class="checklist-row">
+          <input type="checkbox" id="roleFc" class="checklist" name="checklist" value="Role of FC" />
+          <span>Role of FC</span>
+        </div>
+        <div class="checklist-row">
+          <input type="checkbox" id="careerOpp" class="checklist" name="checklist" value="Career Opportunity" />
+          <span>Career Opportunity</span>
+        </div>
+        <div class="checklist-row">
+          <input type="checkbox" id="alHeadstart" class="checklist" name="checklist" value="AL, Headstart, Contest" />
+          <span>AL, Headstart, Contest</span>
+        </div>
+        <div class="checklist-row">
+          <input type="checkbox" id="companySupport" class="checklist" name="checklist" value="Company's Support" />
+          <span>Company's Support</span>
+        </div>
+        <div class="checklist-row">
+          <input type="checkbox" id="howBecome" class="checklist" name="checklist" value="How will you become?" />
+          <span>How will you become?</span>
+        </div>
+        <div class="checklist-row">
+          <input type="checkbox" id="documentation" class="checklist" name="checklist" value="Documentation" />
+          <span>Documentation</span>
+        </div>
+        <div class="checklist-row">
+          <input type="checkbox" id="irdaExam" class="checklist" name="checklist" value="IRDA Exam - 25 Hrs of Training" />
+          <span>IRDA Exam - 25 Hrs of Training</span>
+        </div>
+        <div class="checklist-row">
+          <input type="checkbox" id="license" class="checklist" name="checklist" value="License" />
+          <span>License</span>
+        </div>
+        <div class="checklist-row">
+          <input type="checkbox" id="closing" class="checklist" name="checklist" value="Closing" />
+          <span>Closing</span>
+        </div>
+
+      </div>
+
+      <button class="main-save" type="submit">Save progress</button>
+    </form>
+  </div>
+<script>
+  
+document.getElementById('checklistForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  
+  const submitBtn = document.querySelector('.main-save');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Submitting...';
+  
+  try {
+    // Prepare form data
+    const formData = {
+      fcName: document.getElementById('name').value,
+      mobile: document.getElementById('mobile').value,
+      response: document.getElementById('response').value,
+      date: document.getElementById('date').value,
+      flsName: document.getElementById('flsName').value,
+      trainerName: document.getElementById('trainerName').value,
+      checklist: Array.from(document.querySelectorAll('input[name="checklist"]:checked'))
+                .map(cb => cb.value).join(', ')
+    };
+    
+    // Submit to Google Sheets
+    const response = await fetch('https://script.google.com/macros/s/AKfycbxb6Pzx6oROCt-f_WgD70A4KDswhui-Dl8p-HTofix-qoVETgzQMZ8j4FbEXLcyV4A/exec', {
+      method: 'POST',
+      body: JSON.stringify(formData)
+    });
+    
+    const result = await response.text();
+    
+    if (result.startsWith("Error")) {
+      throw new Error(result);
+    }
+    
+    // Show success alert instead of the div
+    alert("Progress saved successfully!");
+    
+    // Reset form after successful submission
+    document.getElementById('checklistForm').reset();
+    
+  } catch (error) {
+    alert(error.message);
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Save progress';
+  }
+});
+
+</script>
+</body>
+</html>
