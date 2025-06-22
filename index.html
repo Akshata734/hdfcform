@@ -7,30 +7,35 @@
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      font-family: sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
       background: #f0f2f5;
       padding: 20px;
       display: flex;
       justify-content: center;
+      min-height: 100vh;
     }
 
     .container {
       background: white;
-      padding: 30px;
+      padding: 25px;
       max-width: 750px;
       width: 100%;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
     }
 
     h1 {
-      font-size: 24px;
+      font-size: 22px;
       color: #202124;
       margin-bottom: 20px;
       text-align: center;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #eee;
     }
 
     h2 {
@@ -42,85 +47,139 @@
 
     form label {
       display: block;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       font-weight: 600;
+      color: #333;
     }
 
     input[type="text"],
     input[type="number"],
     input[type="date"] {
       width: 100%;
-      padding: 12px;
+      padding: 12px 15px;
       margin-top: 5px;
       margin-bottom: 20px;
-      border: 1px solid #ccc;
+      border: 1px solid #ddd;
       border-radius: 6px;
-      background-color: #fdfdfd;
+      background-color: #f9f9f9;
+      font-size: 15px;
     }
 
     input:focus {
       border-color: #1a73e8;
       outline: none;
-      box-shadow: 0 0 0 2px #e8f0fe;
+      box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
     }
 
     .checklist-items {
       display: flex;
       flex-direction: column;
       gap: 10px;
-      background: #e6f7ff;
+      background: #f5f9ff;
       padding: 15px;
       border-radius: 8px;
       margin-bottom: 25px;
+      border: 1px solid #e1e8f7;
     }
 
     .checklist-row {
       display: flex;
       align-items: center;
       background: #fff;
-      border: 1px solid #ddd;
+      border: 1px solid #e0e0e0;
       border-radius: 6px;
-      padding: 10px;
-      gap: 10px;
+      padding: 12px 15px;
+      gap: 12px;
+      min-height: 48px;
+      transition: all 0.2s ease;
+    }
+
+    .checklist-row:hover {
+      border-color: #c2d6ff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
 
     .checklist-row input[type="checkbox"] {
-      width: 20px;
-      height: 20px;
+      min-width: 22px;
+      min-height: 22px;
+      width: 22px;
+      height: 22px;
+      margin: 0;
+      flex-shrink: 0;
+      accent-color: #1a73e8;
+      cursor: pointer;
     }
 
     .checklist-row span {
       flex-grow: 1;
-      padding-left: 10px;
+      padding-left: 5px;
+      font-size: 15px;
+      line-height: 1.4;
+      word-break: break-word;
+      color: #333;
     }
 
     .main-save {
-      background-color: #007bff;
+      background-color: #1a73e8;
       color: white;
       border: none;
       border-radius: 6px;
-      padding: 12px;
+      padding: 14px;
       font-size: 16px;
       font-weight: 500;
       cursor: pointer;
-      transition: background-color 0.3s;
+      transition: all 0.3s;
       width: 100%;
-      margin-top: 20px;
+      margin-top: 15px;
     }
 
     .main-save:hover {
-      background-color: #0069d9;
+      background-color: #1765cc;
     }
 
-    @media (max-width: 600px) {
-      .checklist-row {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+    .main-save:active {
+      transform: scale(0.98);
+    }
 
-      .checklist-row span,
+    @media (max-width: 480px) {
+      body {
+        padding: 15px;
+      }
+      
+      .container {
+        padding: 20px;
+      }
+      
+      h1 {
+        font-size: 20px;
+      }
+      
+      .checklist-row {
+        padding: 14px 12px;
+        min-height: 52px;
+      }
+      
       .checklist-row input[type="checkbox"] {
-        width: 100%;
+        min-width: 24px;
+        min-height: 24px;
+        width: 24px;
+        height: 24px;
+      }
+      
+      .checklist-row span {
+        font-size: 16px;
+      }
+      
+      input[type="text"],
+      input[type="number"],
+      input[type="date"] {
+        padding: 14px 12px;
+        font-size: 16px;
+      }
+      
+      .main-save {
+        padding: 16px;
+        font-size: 17px;
       }
     }
   </style>
@@ -155,7 +214,6 @@
 
       <h2>Checklist Points</h2>
       <div class="checklist-items">
-    
         <div class="checklist-row">
           <input type="checkbox" id="greetings" class="checklist" name="checklist" value="Greetings" />
           <span>Greetings</span>
@@ -170,104 +228,122 @@
           <input type="checkbox" id="iceBreaking" class="checklist" name="checklist" value="Ice Breaking" />
           <span>Ice Breaking</span>
         </div>
+
         <div class="checklist-row">
           <input type="checkbox" id="companyIntro" class="checklist" name="checklist" value="Company Introduction" />
           <span>Company Introduction</span>
         </div>
+
         <div class="checklist-row">
           <input type="checkbox" id="tod" class="checklist" name="checklist" value="TOD - Threat of Discontent" />
           <span>TOD - Threat of Discontent</span>
         </div>
+
         <div class="checklist-row">
           <input type="checkbox" id="roleFc" class="checklist" name="checklist" value="Role of FC" />
           <span>Role of FC</span>
         </div>
+
         <div class="checklist-row">
           <input type="checkbox" id="careerOpp" class="checklist" name="checklist" value="Career Opportunity" />
           <span>Career Opportunity</span>
         </div>
+
         <div class="checklist-row">
           <input type="checkbox" id="alHeadstart" class="checklist" name="checklist" value="AL, Headstart, Contest" />
           <span>AL, Headstart, Contest</span>
         </div>
+
         <div class="checklist-row">
           <input type="checkbox" id="companySupport" class="checklist" name="checklist" value="Company's Support" />
           <span>Company's Support</span>
         </div>
+
         <div class="checklist-row">
           <input type="checkbox" id="howBecome" class="checklist" name="checklist" value="How will you become?" />
           <span>How will you become?</span>
         </div>
+
         <div class="checklist-row">
           <input type="checkbox" id="documentation" class="checklist" name="checklist" value="Documentation" />
           <span>Documentation</span>
         </div>
+
         <div class="checklist-row">
           <input type="checkbox" id="irdaExam" class="checklist" name="checklist" value="IRDA Exam - 25 Hrs of Training" />
           <span>IRDA Exam - 25 Hrs of Training</span>
         </div>
+
         <div class="checklist-row">
           <input type="checkbox" id="license" class="checklist" name="checklist" value="License" />
           <span>License</span>
         </div>
+
         <div class="checklist-row">
           <input type="checkbox" id="closing" class="checklist" name="checklist" value="Closing" />
           <span>Closing</span>
         </div>
-
       </div>
 
       <button class="main-save" type="submit">Save progress</button>
     </form>
   </div>
-<script>
-  
-document.getElementById('checklistForm').addEventListener('submit', async function(e) {
-  e.preventDefault();
-  
-  const submitBtn = document.querySelector('.main-save');
-  submitBtn.disabled = true;
-  submitBtn.textContent = 'Submitting...';
-  
-  try {
-    // Prepare form data
-    const formData = {
-      fcName: document.getElementById('name').value,
-      mobile: document.getElementById('mobile').value,
-      response: document.getElementById('response').value,
-      date: document.getElementById('date').value,
-      flsName: document.getElementById('flsName').value,
-      trainerName: document.getElementById('trainerName').value,
-      checklist: Array.from(document.querySelectorAll('input[name="checklist"]:checked'))
-                .map(cb => cb.value).join(', ')
-    };
-    
-    // Submit to Google Sheets
-    const response = await fetch('https://script.google.com/macros/s/AKfycbxb6Pzx6oROCt-f_WgD70A4KDswhui-Dl8p-HTofix-qoVETgzQMZ8j4FbEXLcyV4A/exec', {
-      method: 'POST',
-      body: JSON.stringify(formData)
-    });
-    
-    const result = await response.text();
-    
-    if (result.startsWith("Error")) {
-      throw new Error(result);
-    }
-    
-    // Show success alert instead of the div
-    alert("Progress saved successfully!");
-    
-    // Reset form after successful submission
-    document.getElementById('checklistForm').reset();
-    
-  } catch (error) {
-    alert(error.message);
-  } finally {
-    submitBtn.disabled = false;
-    submitBtn.textContent = 'Save progress';
-  }
-});
 
-</script>
+  <script>
+    document.getElementById('checklistForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const submitBtn = document.querySelector('.main-save');
+      const originalText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting...';
+      
+      try {
+        // Prepare form data
+        const formData = {
+          fcName: document.getElementById('name').value,
+          mobile: document.getElementById('mobile').value,
+          response: document.getElementById('response').value,
+          date: document.getElementById('date').value,
+          flsName: document.getElementById('flsName').value,
+          trainerName: document.getElementById('trainerName').value,
+          checklist: Array.from(document.querySelectorAll('input[name="checklist"]:checked'))
+                    .map(cb => cb.value).join(', ')
+        };
+        
+        // Submit to Google Sheets
+        const response = await fetch('https://script.google.com/macros/s/AKfycbwzjHw_N6yJecMofNWjKjJJEPYIGETtzttCONEgyvPt8361lBw5ru5yEk9SPjlulGfakg/exec', {
+          method: 'POST',
+          body: JSON.stringify(formData)
+        });
+        
+        const result = await response.text();
+        
+        if (result.startsWith("Error")) {
+          throw new Error(result);
+        }
+        
+        alert("✅ Checklist submitted successfully!");
+        document.getElementById('checklistForm').reset();
+        
+      } catch (error) {
+        alert("⚠️ Error: " + error.message);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      }
+    });
+
+    // Better mobile touch experience
+    document.querySelectorAll('.checklist-row').forEach(row => {
+      row.addEventListener('click', function(e) {
+        // If click wasn't directly on the checkbox
+        if (e.target.tagName !== 'INPUT') {
+          const checkbox = this.querySelector('input[type="checkbox"]');
+          checkbox.checked = !checkbox.checked;
+        }
+      });
+    });
+  </script>
 </body>
 </html>
